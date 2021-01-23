@@ -48,7 +48,7 @@ class _MainScreenState extends State<MainScreen> {
         backgroundColor: Color(0xff0410ff),
         body: Column(
           children: [
-            Padding(padding: EdgeInsets.only(top: 70,left: 24,right: 24),
+            Padding(padding: EdgeInsets.only(top: 50,left: 24,right: 24),
               child: new Row(
                 children: <Widget>[
                   CircleAvatar(radius: 20,backgroundImage: NetworkImage("https://www.woolha.com/media/2020/03/flutter-circleavatar-minradius-maxradius.jpg") ,),
@@ -64,7 +64,7 @@ class _MainScreenState extends State<MainScreen> {
             ),
 
             Padding(
-              padding: const EdgeInsets.only(top: 45),
+              padding: const EdgeInsets.only(top: 35),
               child: Container(
                 padding: EdgeInsets.only(left: 24),
                 decoration: BoxDecoration(
@@ -77,7 +77,7 @@ class _MainScreenState extends State<MainScreen> {
                       topRight: Radius.circular(30),
                     ) // use instead of BorderRadius.all(Radius.circular(20))
                 ),
-                height: MediaQuery.of(context).size.height-163,
+                height: MediaQuery.of(context).size.height-133,
                 width: double.infinity,
                 child: Column(
                   children: [

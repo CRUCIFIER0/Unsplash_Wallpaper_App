@@ -61,6 +61,7 @@ class _SearchImageState extends State<SearchImage> {
                   Expanded(
                     child: TextField(
                       controller: myController,
+                      style: TextStyle(fontSize: 16, color: Colors.white),
                       decoration: InputDecoration(
                           hintText: 'Search for an image',
                           hintStyle: TextStyle(fontSize: 15.0, color: Colors.white),
@@ -74,7 +75,7 @@ class _SearchImageState extends State<SearchImage> {
                           },
                           icon: Icon(
                             Icons.clear,
-                            color: Color.fromRGBO(13, 26, 59, 1),
+                            color: Colors.white,
                           ),
                         ),
                       ),
