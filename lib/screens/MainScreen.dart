@@ -2,6 +2,7 @@ import 'package:eva_icons_flutter/eva_icons_flutter.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/painting.dart';
+import 'package:flutter_app/screens/ImageView.dart';
 import 'package:flutter_app/screens/SearchImage.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -83,9 +84,10 @@ class _MainScreenState extends State<MainScreen> {
                   children: [
                     SizedBox(height: 25,),
                     new SizedBox(width: double.infinity, child: new  Text('Hello, \nBrooklyn', style: GoogleFonts.kanit(textStyle: TextStyle(color: Colors.white, letterSpacing: .5,fontWeight: FontWeight.w800,fontSize: 35),),)),
-                    SizedBox(height: 30,),
+                    SizedBox(height: 15,),
+                    Align(alignment:Alignment.centerLeft,child: Text("Trending now",style: GoogleFonts.sourceSansPro(textStyle: TextStyle(color: Colors.white, letterSpacing: .5,fontWeight: FontWeight.w100,fontSize: 16),))),
+                    SizedBox(height: 10,),
                     Container(
-
                       height: 300,
                       width: double.infinity,
                       child: SizedBox(
@@ -95,15 +97,17 @@ class _MainScreenState extends State<MainScreen> {
                             itemBuilder: (context, index) {
                               return Row(
                                 children: [
-                                  ClipRRect(
-                                    borderRadius: BorderRadius.circular(18),
-                                    child: Image.network(
-                                      data[index]['urls']['small'],
-                                      height: 3320.0,
-                                      width: 200.0,
-                                      fit: BoxFit.cover,
+                                  InkWell(
+                                    child: ClipRRect(
+                                      borderRadius: BorderRadius.circular(18),
+                                      child: Image.network(
+                                        data[index]['urls']['small'],
+                                        height: 3320.0,
+                                        width: 200.0,
+                                        fit: BoxFit.cover,
+                                      ),
                                     ),
-
+                                    onTap: (){Navigator.push(context, MaterialPageRoute(builder: (context) => ImageView(pic: data[index]["urls"]["small"])),);},
                                   ),
                                   SizedBox(width: 15,)
                                 ],
@@ -113,13 +117,36 @@ class _MainScreenState extends State<MainScreen> {
                       ),
                     ),
                     SizedBox(height: 20,),
-                    FlatButton(
-                      padding: EdgeInsets.only(left: 40,right: 40,top: 10,bottom: 10),
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(20.0),
-                          side: BorderSide(color: Colors.white54)
-                        ),
-                        child: new Text("Load all",style: GoogleFonts.sourceSansPro(textStyle: TextStyle(color: Colors.white, letterSpacing: .5,fontWeight: FontWeight.w300,fontSize: 16),)),onPressed: null
+                    Container(
+                      margin: EdgeInsets.only(right: 30),
+                      child: FlatButton(
+                        padding: EdgeInsets.only(left: 40,right: 40,top: 10,bottom: 10),
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(20.0),
+                            side: BorderSide(color: Colors.white54)
+                          ),
+                          child: new Text("Load all",style: GoogleFonts.sourceSansPro(textStyle: TextStyle(color: Colors.white, letterSpacing: .5,fontWeight: FontWeight.w300,fontSize: 16),)),onPressed: null
+                      ),
+                    ),
+                    SizedBox(height: 20,),
+                    Container(
+                      margin: EdgeInsets.only(left:60),
+                      child: Row(
+                        children: [
+                          IconButton(icon: Icon(EvaIcons.dropletOutline,color: Colors.white,),),
+                          SizedBox(width: 40,),
+                          Container(
+                            width: 45,
+                            height:45,
+                            child: Icon(EvaIcons.closeCircleOutline, color: Colors.white,),
+                            decoration: BoxDecoration(
+                                shape: BoxShape.circle,
+                                color: Color(0xff0410ff)),
+                          ),
+                          SizedBox(width: 40,),
+                          IconButton(icon: Icon(EvaIcons.messageCircleOutline,color: Colors.white,),),
+                        ],
+                      ),
                     )
                   ],
                 ),
