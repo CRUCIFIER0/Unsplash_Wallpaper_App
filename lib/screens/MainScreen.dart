@@ -2,6 +2,7 @@ import 'package:eva_icons_flutter/eva_icons_flutter.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/painting.dart';
+import 'package:flutter_app/screens/Categories.dart';
 import 'package:flutter_app/screens/ImageView.dart';
 import 'package:flutter_app/screens/SearchImage.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -46,7 +47,7 @@ class _MainScreenState extends State<MainScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        backgroundColor: Color(0xff0410ff),
+        backgroundColor: Color(0xff303aff),
         body: Column(
           children: [
             Padding(padding: EdgeInsets.only(top: 50,left: 24,right: 24),
@@ -125,7 +126,10 @@ class _MainScreenState extends State<MainScreen> {
                             borderRadius: BorderRadius.circular(20.0),
                             side: BorderSide(color: Colors.white54)
                           ),
-                          child: new Text("Load all",style: GoogleFonts.sourceSansPro(textStyle: TextStyle(color: Colors.white, letterSpacing: .5,fontWeight: FontWeight.w300,fontSize: 16),)),onPressed: null
+                          child: new Text("Load all",style: GoogleFonts.sourceSansPro(textStyle: TextStyle(color: Colors.white, letterSpacing: .5,fontWeight: FontWeight.w300,fontSize: 16),)),
+                          onPressed: (){
+                            Navigator.push(context, MaterialPageRoute(builder: (context) => Categories()));
+                          }
                       ),
                     ),
                     SizedBox(height: 20,),
@@ -135,13 +139,16 @@ class _MainScreenState extends State<MainScreen> {
                         children: [
                           IconButton(icon: Icon(EvaIcons.dropletOutline,color: Colors.white,),),
                           SizedBox(width: 40,),
-                          Container(
-                            width: 45,
-                            height:45,
-                            child: Icon(EvaIcons.closeCircleOutline, color: Colors.white,),
-                            decoration: BoxDecoration(
-                                shape: BoxShape.circle,
-                                color: Color(0xff0410ff)),
+                          InkWell(
+                            onTap: (){},
+                            child: Container(
+                              width: 45,
+                              height:45,
+                              child: Icon(EvaIcons.closeCircleOutline, color: Colors.white,),
+                              decoration: BoxDecoration(
+                                  shape: BoxShape.circle,
+                                  color: Color(0xff0410ff)),
+                              ),
                           ),
                           SizedBox(width: 40,),
                           IconButton(icon: Icon(EvaIcons.messageCircleOutline,color: Colors.white,),),

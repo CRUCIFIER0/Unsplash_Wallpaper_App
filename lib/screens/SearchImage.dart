@@ -1,5 +1,6 @@
 import 'package:eva_icons_flutter/eva_icons_flutter.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_app/screens/ImageView.dart';
 import 'dart:async';
 import 'dart:convert';
 import 'package:http/http.dart' as http;
@@ -111,17 +112,20 @@ class _SearchImageState extends State<SearchImage> {
                       childAspectRatio: 0.7
                     ),
                     itemBuilder: (BuildContext context, int index){
-                      return Padding(
-                        padding: const EdgeInsets.all(2.0),
-                        child: ClipRRect(
-                          borderRadius: BorderRadius.circular(18),
-                          child: Image.network(
-                            data[index]['urls']['small'],
-                            height: 3320.0,
-                            width: 200.0,
-                            fit: BoxFit.cover,
-                          ),
+                      return InkWell(
+                        onTap: (){Navigator.push(context, MaterialPageRoute(builder: (context) => ImageView(pic: data[index]["urls"]["regular"])),);},
+                        child: Padding(
+                          padding: const EdgeInsets.all(2.0),
+                          child: ClipRRect(
+                            borderRadius: BorderRadius.circular(18),
+                            child: Image.network(
+                              data[index]['urls']['small'],
+                              height: 3320.0,
+                              width: 200.0,
+                              fit: BoxFit.cover,
+                            ),
 
+                          ),
                         ),
                       );
                     },
