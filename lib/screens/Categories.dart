@@ -13,10 +13,18 @@ class _CategoriesState extends State<Categories> {
       backgroundColor: Color(0xff303aff),
       body: Column(
         children: [
+          Container(
+            padding: EdgeInsets.only(top: 40,left: 24),
+            child: new Row(
+              children: <Widget>[
+                Text('Categories', style: GoogleFonts.kanit(textStyle: TextStyle(color: Colors.white, letterSpacing: .5,fontWeight: FontWeight.w600,fontSize: 24),),),
+              ],
+            ),
+          ),
 
           Container(
-            margin: EdgeInsets.only(top: 90),
-            height: MediaQuery.of(context).size.height-90,
+            margin: EdgeInsets.only(top: 32),
+            height: MediaQuery.of(context).size.height-108,
             //color: Colors.black,
             decoration: BoxDecoration(
                 color: Color(0xff040204),

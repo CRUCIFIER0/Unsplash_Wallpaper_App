@@ -6,7 +6,7 @@ import 'package:flutter_app/screens/Categories.dart';
 import 'package:flutter_app/screens/ImageView.dart';
 import 'package:flutter_app/screens/SearchImage.dart';
 import 'package:google_fonts/google_fonts.dart';
-
+import 'package:flutter_app/screens/RandomImage.dart';
 import 'dart:async';
 import 'dart:convert';
 import 'package:http/http.dart' as http;
@@ -23,7 +23,7 @@ class MainScreen extends StatefulWidget {
 
 
 class _MainScreenState extends State<MainScreen> {
-  String _search= "abstract";
+  String _search= "nature";
   List data;
   Future<String> getjsondata() async {
     try{
@@ -108,7 +108,15 @@ class _MainScreenState extends State<MainScreen> {
                                         fit: BoxFit.cover,
                                       ),
                                     ),
-                                    onTap: (){Navigator.push(context, MaterialPageRoute(builder: (context) => ImageView(pic: data[index]["urls"]["small"])),);},
+                                    onTap: (){Navigator.push(context, MaterialPageRoute(builder: (context) => ImageView(
+                                      id: data[index]["id"],
+                                      pic: data[index]["urls"]["small"],
+                                      likes: data[index]["likes"],
+                                      desc: data[index]["alt_description"],
+                                      //profilepic: data[index]["user"]["profile_image"]["small"],
+                                      //make:data[index]["exif"]["make"],
+                                      //model:data[index]["exif"]["model"]
+                                    )),);},
                                   ),
                                   SizedBox(width: 15,)
                                 ],
@@ -140,7 +148,7 @@ class _MainScreenState extends State<MainScreen> {
                           IconButton(icon: Icon(EvaIcons.dropletOutline,color: Colors.white,),),
                           SizedBox(width: 40,),
                           InkWell(
-                            onTap: (){},
+                            onTap: (){ Navigator.push(context, MaterialPageRoute(builder: (context) => RandomImage()));},
                             child: Container(
                               width: 45,
                               height:45,
