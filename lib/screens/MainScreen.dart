@@ -37,6 +37,7 @@ class _MainScreenState extends State<MainScreen> {
     return "success";
   }
 
+
   @override
   void initState() {
     super.initState();
@@ -111,11 +112,6 @@ class _MainScreenState extends State<MainScreen> {
                                     onTap: (){Navigator.push(context, MaterialPageRoute(builder: (context) => ImageView(
                                       id: data[index]["id"],
                                       pic: data[index]["urls"]["small"],
-                                      likes: data[index]["likes"],
-                                      desc: data[index]["alt_description"],
-                                      //profilepic: data[index]["user"]["profile_image"]["small"],
-                                      //make:data[index]["exif"]["make"],
-                                      //model:data[index]["exif"]["model"]
                                     )),);},
                                   ),
                                   SizedBox(width: 15,)

@@ -113,7 +113,7 @@ class _SearchImageState extends State<SearchImage> {
                     ),
                     itemBuilder: (BuildContext context, int index){
                       return InkWell(
-                        onTap: (){Navigator.push(context, MaterialPageRoute(builder: (context) => ImageView(pic: data[index]["urls"]["regular"])),);},
+                        onTap: (){Navigator.push(context, MaterialPageRoute(builder: (context) => ImageView(id: data[index]["id"],pic: data[index]["urls"]["regular"])),);},
                         child: Padding(
                           padding: const EdgeInsets.all(2.0),
                           child: ClipRRect(
